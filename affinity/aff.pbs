@@ -1,0 +1,11 @@
+#!/bin/bash
+#    Begin PBS directives
+#PBS -A STF007
+#PBS -N affinity
+#PBS -j oe
+#PBS -l walltime=00:05:00,nodes=2
+#    End PBS directives and begin shell commands
+cd $MEMBERWORK/stf007
+export OMP_NUM_THREADS=16
+aprun -n 2 -d 16 -j2 ./a.out
+
